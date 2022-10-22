@@ -1,0 +1,7 @@
+.pixels-container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 484px;
+    width: 484px;
+}
+
