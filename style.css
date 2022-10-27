@@ -6,8 +6,8 @@ html{
 body{
     margin: 0;
     padding: 0;
-    background-color: #07BEB8;
-    background-image: url(./images/wave3.svg);
+    background-color: #ffff3f;
+    animation: fade-in 3s ease-in;
 }
 
 .all{
@@ -28,8 +28,7 @@ body{
 
 
 .pixels-container{
-    border: 30px solid ;
-    border-image: url(./images/pattern.svg) 185 round;
+    border: 15px solid ;
     display: flex;
     flex-wrap: wrap;
     max-height: 512px;
@@ -48,26 +47,28 @@ button{
     padding: 5px 8px;
     border-style: none;
     border-radius: 8px;
-    background-color: #ce4257;
+    background-color: #f25c54;
     font-size: x-large;
     font-weight: 600;
     font-family: 'Roboto', sans-serif;
-    box-shadow: 4px 6px black;
+    box-shadow: -4px 6px rgb(0, 0, 0);
+    transition: 0.2s ease-in-out;
 }
 
 button:hover{
-    background-color: #ffca3a;
+    background-color: black;
+    box-shadow: none;
 
 }
 
 nav{
     display: flex;
-    background-color: #07BEB8;
-    background-image: url(./images/wave3.svg);
+    background-color: #ffff3f;
     background-repeat:repeat;
     justify-content: center;
     margin: 0;
     padding: 0;
+    border-bottom: solid 1px black;
 }
 
 .logo{
@@ -75,10 +76,10 @@ nav{
     margin-bottom: 50px;
     text-align: center;
     font-family: 'Silkscreen';
-    font-size: 3rem;
+    font-size: 2.4rem;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
-    color: #fff;
+    color: black;
     animation-name: logo;
     animation-duration: 3s;
     animation-timing-function: cubic-bezier(.69,.1,0,1.04);
@@ -131,7 +132,8 @@ nav{
         -24px 24px #43a047,
         -28px 28px #eeff41,
         -32px 32px #f9a825,
-        -36px 36px #ff5722;}
+        -36px 36px #ff5722,
+        -38px 38px white;}
     
 }
 
