@@ -6,31 +6,37 @@ html{
 body{
     margin: 0;
     padding: 0;
+    background-color: #07BEB8;
+    background-image: url(./images/wave3.svg);
+}
+
+.all{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    margin-top: 50px;
+    margin-right: 135px;
 }
 
 .tools{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items:center;
 }
-.canvas-container{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
+
 
 .pixels-container{
     border: 30px solid ;
     border-image: url(./images/pattern.svg) 185 round;
     display: flex;
     flex-wrap: wrap;
-    height: 448px;
-    width: 448px;
+    max-height: 512px;
+    max-width: 512px;
 }
 
 .gridsize-buttons{
-    margin-left: 120px;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -41,10 +47,12 @@ button{
     margin-top: 60px;
     padding: 5px 8px;
     border-style: none;
-    background-color: #07BEB8;
-    font-size: medium;
+    border-radius: 8px;
+    background-color: #ce4257;
+    font-size: x-large;
     font-weight: 600;
     font-family: 'Roboto', sans-serif;
+    box-shadow: 4px 6px black;
 }
 
 button:hover{
@@ -80,4 +88,21 @@ nav{
                  -28px 28px #eeff41,
                  -32px 32px #f9a825,
                  -36px 36px #ff5722;
+}
+
+i{
+    color: black;
+    margin: 0;
+    padding: auto;
+
+}
+
+footer{
+    margin-top: 80px;
+    padding: 20px 0px 0px 0px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
 }

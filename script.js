@@ -3,7 +3,7 @@ const pixelsContainer = document.querySelector(".pixels-container");
 const pixel = document.createElement("div");
 pixel.className = "pixel";
 pixel.style.cssText =
-  "width: 26px; height:26px; auto; border: 1px solid grey; user-select: none;";
+  `width :${512/16 - 2}px; height:${512/16 - 2}px; border: 1px solid grey; user-select: none; background-color:white`;
 
 let isBordered = true;
 var drawMode = false;
@@ -11,6 +11,7 @@ const colorPicker = document.querySelector(".colorpicker");
 let currentCOlor = colorPicker.value;
 const clearButton = document.querySelector(".clearbutton");
 const eraserBUtton = document.querySelector(".eraserbutton");
+const penButton = document.querySelector(".pen");
 colorPicker.addEventListener("input", () => {
   currentCOlor = colorPicker.value;
 });
@@ -67,8 +68,8 @@ let currentGrid = 16;
 
 thirtyTwo.addEventListener("click", () => {
   pixelsContainer.textContent = "";
-  pixel.style.width = `${448 / 32 - 2}px`;
-  pixel.style.height = `${448 / 32 - 2}px`;
+  pixel.style.width = `${512 / 32 - 2}px`;
+  pixel.style.height = `${512 / 32 - 2}px`;
   filler(32);
   attacher();
   currentGrid = 32;
@@ -77,8 +78,8 @@ thirtyTwo.addEventListener("click", () => {
 
 sixteen.addEventListener("click", () => {
   pixelsContainer.textContent = "";
-  pixel.style.width = `${448 / 16 - 2}px`;
-  pixel.style.height = `${448 / 16 - 2}px`;
+  pixel.style.width = `${512 / 16 - 2}px`;
+  pixel.style.height = `${512 / 16 - 2}px`;
   filler(16);
   attacher();
   currentGrid = 16;
@@ -86,8 +87,8 @@ sixteen.addEventListener("click", () => {
 });
 sixtyFour.addEventListener("click", () => {
   pixelsContainer.textContent = "";
-  pixel.style.width = `${448 / 64 - 2}px`;
-  pixel.style.height = `${448 / 64 - 2}px`;
+  pixel.style.width = `${512 / 64 - 2}px`;
+  pixel.style.height = `${512 / 64 - 2}px`;
   filler(64);
   attacher();
   currentGrid = 64;
@@ -101,19 +102,25 @@ function borderToggle() {
   if (isBordered) {
     allOfEm.forEach((square) => {
       square.style.border = "0px";
-      square.style.width = `${448 / currentGrid}px`;
-      square.style.height = `${448 / currentGrid}px`;
+      square.style.width = `${512 / currentGrid}px`;
+      square.style.height = `${512 / currentGrid}px`;
     });
     isBordered = false;
   } else {
     allOfEm.forEach((square) => {
       square.style.border = "1px solid grey";
-      square.style.width = `${448 / currentGrid - 2}px`;
-      square.style.height = `${448 / currentGrid - 2}px`;
+      square.style.width = `${512 / currentGrid - 2}px`;
+      square.style.height = `${512 / currentGrid - 2}px`;
     });
     isBordered = true;
   }
 }
+
+
+penButton.addEventListener("click", ()=>{
+  colorPicker.value="#000000"
+  currentCOlor = colorPicker.value
+})
 
 clearButton.addEventListener("click", () => {
   pixelsContainer.textContent = "";
@@ -128,7 +135,8 @@ clearButton.addEventListener("click", () => {
 });
 
 eraserBUtton.addEventListener("click", () =>{
-    currentCOlor = "white";
+    colorPicker.value = "#ffffff";
+    currentCOlor = colorPicker.value;
 })
 
 const gridToggle = document.querySelector(".gridtoggle");
