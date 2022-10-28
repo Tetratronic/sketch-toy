@@ -12,9 +12,12 @@ let currentCOlor = colorPicker.value;
 const clearButton = document.querySelector(".clearbutton");
 const eraserBUtton = document.querySelector(".eraserbutton");
 const penButton = document.querySelector(".pen");
+const rainbowButton = document.querySelector('.rainbow');
 colorPicker.addEventListener("input", () => {
   currentCOlor = colorPicker.value;
 });
+
+rainbowMode = false;
 
 //fill the canvas with "pixels"
 
@@ -33,11 +36,20 @@ function attacher() {
   const squares = allOfEm;
   squares.forEach((square) => {
     square.addEventListener("mousedown", () => {
-      square.style.backgroundColor = currentCOlor;
+      if (rainbowMode){
+        square.style.backgroundColor = randomColorGenerator()
+      }else{
+        square.style.backgroundColor = currentCOlor;
+      }
+
     });
     square.addEventListener("mouseover", () => {
       if (drawMode) {
         square.style.backgroundColor = currentCOlor;
+        if (rainbowMode){
+          square.style.backgroundColor = randomColorGenerator()
+        }
+
       }
     });
   });
@@ -50,6 +62,17 @@ window.addEventListener("mousedown", () => {
 window.addEventListener("mouseup", () => {
   drawMode = false;
 });
+
+
+function randomColorGenerator(){
+  values = "0123456789ABCDEF"
+  final = "#";
+  for(i = 0; i < 6; i++){
+    addedHex = values[Math.floor(Math.random() * 16)]
+    final = final + addedHex;
+  }
+  return final
+}
 
 function defaultGrid() {
   filler(16);
@@ -118,11 +141,17 @@ function borderToggle() {
 
 
 penButton.addEventListener("click", ()=>{
+  rainbowMode = false;
   colorPicker.value="#000000"
   currentCOlor = colorPicker.value
 })
 
+rainbowButton.addEventListener("click", ()=>{
+  rainbowMode = true;
+})
+
 clearButton.addEventListener("click", () => {
+  rainbowMode = false;
   pixelsContainer.textContent = "";
   if(!isBordered){
     filler(currentGrid);
@@ -135,6 +164,7 @@ clearButton.addEventListener("click", () => {
 });
 
 eraserBUtton.addEventListener("click", () =>{
+    rainbowMode = false;
     colorPicker.value = "#ffffff";
     currentCOlor = colorPicker.value;
 })
