@@ -5,8 +5,7 @@ pixel.className = "pixel";
 pixel.style.cssText =
   `width :${512/16 - 2}px; height:${512/16 - 2}px; border: 1px solid grey; user-select: none; background-color:white`;
 
-let isBordered = true;
-var drawMode = false;
+
 const colorPicker = document.querySelector(".colorpicker");
 let currentCOlor = colorPicker.value;
 const clearButton = document.querySelector(".clearbutton");
@@ -17,7 +16,9 @@ colorPicker.addEventListener("input", () => {
   currentCOlor = colorPicker.value;
 });
 
-rainbowMode = false;
+let rainbowMode = false;
+let isBordered = true;
+let drawMode = false;
 
 //fill the canvas with "pixels"
 
@@ -30,7 +31,7 @@ function filler(numberOfPixels) {
   isBordered = true;
 }
 
-//attach event listener to every "pixel" to change background on hover
+//attach event listener to every "pixel" to change background color
 function attacher() {
   const allOfEm = document.querySelectorAll(".pixel");
   const squares = allOfEm;
@@ -63,7 +64,7 @@ window.addEventListener("mouseup", () => {
   drawMode = false;
 });
 
-
+// useful functions 
 function randomColorGenerator(){
   values = "0123456789ABCDEF"
   final = "#";
@@ -139,6 +140,12 @@ function borderToggle() {
   }
 }
 
+const gridToggle = document.querySelector(".gridtoggle");
+gridToggle.addEventListener("click", () => {
+  borderToggle();
+});
+
+//tools buttons
 
 penButton.addEventListener("click", ()=>{
   rainbowMode = false;
@@ -169,7 +176,4 @@ eraserBUtton.addEventListener("click", () =>{
     currentCOlor = colorPicker.value;
 })
 
-const gridToggle = document.querySelector(".gridtoggle");
-gridToggle.addEventListener("click", () => {
-  borderToggle();
-});
+
