@@ -64,11 +64,14 @@ button{
     font-family: 'Roboto', sans-serif;
     box-shadow: 4px 6px black;
     width: 100%;
+    transition: 50ms;
 
 }
 
 button:hover{
     background-color: #ffca3a;
+    transform: translate(4px, 6px);
+    box-shadow: none;
 
 }
 
